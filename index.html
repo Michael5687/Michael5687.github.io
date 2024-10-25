@@ -127,5 +127,43 @@
     </footer>
 
     <script src="script.js"></script> <!-- Link to an external JS file (optional) -->
+    <script>
+        // Simple animations using JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for the header text
+            const header = document.querySelector('header h1');
+            header.style.transition = 'transform 1s ease-in-out';
+            header.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                header.style.transform = 'scale(1)';
+            }, 1000);
+
+            // Animation for images in the Victories section
+            const victoryImages = document.querySelectorAll('#Victories img');
+            victoryImages.forEach((img, index) => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 1s ease-in-out';
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 500 * (index + 1));
+            });
+
+            // Hover animation for the Mickey Mouse image
+            const mickeyImage = document.querySelector('section img');
+            mickeyImage.addEventListener('mouseover', () => {
+                mickeyImage.style.transform = 'rotate(10deg) scale(1.1)';
+                mickeyImage.style.transition = 'transform 0.5s ease';
+            });
+            mickeyImage.addEventListener('mouseout', () => {
+                mickeyImage.style.transform = 'rotate(0deg) scale(1)';
+            });
+
+            // Add Mickey Mouse voice when clicking on the image
+            mickeyImage.addEventListener('click', () => {
+                const audio = new Audio('womp womp.m4a');
+                audio.play();
+            });
+        });
+    </script>
 </body>
 </html>
